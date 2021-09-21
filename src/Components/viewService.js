@@ -11,12 +11,12 @@ const ViewService = ({ allServices }) => (
   </div>
 );
 
-// ViewService.propTypes = {
-//   allServices: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };
-
 ViewService.propTypes = {
-  allServices: PropTypes.arrayOf.isRequired,
+  allServices: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
+// ViewService.propTypes = {
+//   allServices: PropTypes.arrayOf.isRequired,
+// };
 
 export default ViewService;

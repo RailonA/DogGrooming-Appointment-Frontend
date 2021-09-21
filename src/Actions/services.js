@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { GET_SERVICE_REQUESTS, GET_SERVICE_FAILURE, GET_SERVICE_SUCCESS } from '../Constants/actions';
 
+// const request = {
+//   logUserIn: 'http://localhost:3000/api/v1/logins',
+//   SignUserIn: 'http://localhost:3000/api/v1/users',
+//   servicesData: 'http://localhost:3000/api/v1/services',
+// };
+
 const fetchServicesAction = () => async (dispatch) => {
   try {
     dispatch({
