@@ -1,29 +1,22 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchService } from '../Actions/actionType';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const ServiceTable = () => {
-  const serviceData = useSelector((state) => state.serviceReducer);
-  const dispatch = useDispatch();
+const ViewService = ({ allServices }) => (
+  <div>
+    {
+        allServices.services.map((service) => (
+          <p key={service.id}>{ service.category }</p>
+        ))
+      }
+  </div>
+);
 
-  console.log(serviceData);
+// ViewService.propTypes = {
+//   allServices: PropTypes.arrayOf(PropTypes.object).isRequired,
+// };
 
-  useEffect(() => {
-    dispatch(fetchService);
-  }, []);
-
-  return (
-    <div>
-      <div>
-        <h1>Service Table</h1>
-        {serviceData.serviceCollection.map((services) => (
-          <div key={services}>
-            <h3>{services.all}</h3>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+ViewService.propTypes = {
+  allServices: PropTypes.arrayOf.isRequired,
 };
 
-export default ServiceTable;
+export default ViewService;

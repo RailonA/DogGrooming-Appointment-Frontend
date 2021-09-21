@@ -1,37 +1,22 @@
-const INITIAL_STATE = {
-  serviceCollection: [],
+import { GET_SERVICE_REQUESTS, GET_SERVICE_SUCCESS, GET_SERVICE_FAILURE } from '../Constants/actions';
+
+const initialState = {
+  services: [],
+  error: null,
+  loading: true,
 };
 
-const serviceReducer = (state = INITIAL_STATE, action) => {
+const serviceReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_SERVICE_REQUEST': return {
-      ...state,
-    };
-    case 'FETCH_SERVICE_SUCCESS': return {
-      ...state,
-      serviceCollection: action.data,
-    };
-    case 'FETCH_SERVICE_FAILURE': return {
-      serviceCollection: [],
-    };
-    default: return state;
+    case GET_SERVICE_REQUESTS:
+      return { ...state, loading: true };
+    case GET_SERVICE_SUCCESS:
+      return { ...state, services: action.payload, loading: false };
+    case GET_SERVICE_FAILURE:
+      return { ...state, error: action.error, loading: false };
+    default:
+      return state;
   }
 };
 
 export default serviceReducer;
-
-// const serviceReducer = (state = INITIAL_STATE, action) => {
-//   switch (action.type) {
-//     case 'FETCH_SERVICE_REQUEST': return {
-//       ...state,
-//     };
-//     case 'FETCH_SERVICE_SUCCESS':
-//       return action.data;
-//     case 'FETCH_SERVICE_FAILURE': return {
-//       serviceCollection: [],
-//     };
-//     default: return state;
-//   }
-// };
-
-// export default serviceReducer;
