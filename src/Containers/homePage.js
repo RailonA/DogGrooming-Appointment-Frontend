@@ -6,6 +6,7 @@ import ViewService from '../Components/viewService';
 const HomePage = () => {
   const serviceData = useSelector((state) => state.services);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchServicesAction());
   }, [dispatch]);

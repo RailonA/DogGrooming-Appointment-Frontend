@@ -5,7 +5,7 @@ const ViewService = ({ allServices }) => (
   <div>
     {
         allServices.services.map((service) => (
-          <p key={service.id}>{ service.category }</p>
+          <p key={service.id}>{ service.petService }</p>
         ))
       }
   </div>
@@ -14,9 +14,5 @@ const ViewService = ({ allServices }) => (
 ViewService.propTypes = {
   allServices: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-// ViewService.propTypes = {
-//   allServices: PropTypes.arrayOf.isRequired,
-// };
 
 export default ViewService;
