@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Button, Modal } from 'react-bootstrap';
 import { createUserAction } from '../Actions/user';
 
 const SignUpForm = ({ onCancel }) => {
@@ -35,11 +36,20 @@ const SignUpForm = ({ onCancel }) => {
 
   return (
     <form onSubmit={handleSignUp}>
-      <input name="username" type="text" onChange={handleChange} />
-      <input name="password" type="password" onChange={handleChange} />
-      <input name="password_confirmation" type="password" onChange={handleChange} />
-      <button type="submit">SIGN UP</button>
-      <button type="button" onClick={onCancel}>Cancel</button>
+      <Modal.Header closeButton>
+        <Modal.Title>Sign Up</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <div className="flex-column">
+          <input className="d-flex col-10" name="username" type="text" placeholder="Enter Username" onChange={handleChange} />
+          <input className="d-flex col-10" name="password" type="password" placeholder="Enter Password" onChange={handleChange} />
+          <input className="d-flex col-10" name="password_confirmation" type="password" placeholder="Confirm Password" onChange={handleChange} />
+        </div>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button type="submit" variant="primary">SIGN UP</Button>
+        <Button type="button" variant="secondary" onClick={onCancel}>Cancel</Button>
+      </Modal.Footer>
     </form>
   );
 };

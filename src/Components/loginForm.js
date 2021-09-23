@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Button, Modal } from 'react-bootstrap';
 import { loginAction } from '../Actions/user';
 
 const LoginForm = ({ onCancel }) => {
@@ -30,10 +31,17 @@ const LoginForm = ({ onCancel }) => {
 
   return (
     <form onSubmit={handleLogin}>
-      <input name="username" type="text" onChange={handleChange} />
-      <input name="password" type="password" onChange={handleChange} />
-      <button type="submit">Login</button>
-      <button type="button" onClick={onCancel}>Cancel</button>
+      <Modal.Header closeButton>
+        <Modal.Title>LOG IN</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <input name="username" type="text" placeholder="Enter Username" onChange={handleChange} />
+        <input name="password" type="password" placeholder="*****" onChange={handleChange} />
+      </Modal.Body>
+      <Modal.Footer>
+        <Button type="submit" variant="primary">Log In</Button>
+        <Button type="button" variant="secondary" onClick={onCancel}>Close</Button>
+      </Modal.Footer>
     </form>
   );
 };

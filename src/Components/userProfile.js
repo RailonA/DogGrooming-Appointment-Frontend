@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Button, Modal } from 'react-bootstrap';
 import { logoutAction } from '../Actions/user';
 import LoginForm from './loginForm';
 import SignUpForm from './signUpForm';
@@ -34,22 +35,44 @@ const UserProfile = () => {
   return (
     <div className="UserProfile">
       {loginProcess
-        ? <LoginForm onCancel={closeLogin} />
+        ? (
+          <Modal
+            show={loginProcess}
+            onHide={closeLogin}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Body>
+              <LoginForm onCancel={closeLogin} />
+            </Modal.Body>
+          </Modal>
+        )
         : null }
       {signUpProcess
-        ? <SignUpForm onCancel={closeSignUp} />
+        ? (
+          <Modal
+            show={signUpProcess}
+            onHide={closeSignUp}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Body>
+              <SignUpForm onCancel={closeSignUp} />
+            </Modal.Body>
+          </Modal>
+        )
         : null }
       {userData.username
         ? (
           <div>
             <span>{userData.username}</span>
-            <button type="button" name="logout" onClick={handleLogout}>LOGOUT</button>
+            <Button variant="primary" type="button" name="logout" onClick={handleLogout}>LOGOUT</Button>
           </div>
         )
         : (
           <div>
-            <button type="button" onClick={openLogin}>LOGIN</button>
-            <button type="button" onClick={openSignUp}>SIGN UP</button>
+            <Button variant="primary" onClick={openLogin}>LOGIN</Button>
+            <Button type="button" variant="primary" onClick={openSignUp}>SIGN UP</Button>
           </div>
         )}
     </div>
