@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
-import { loginAction } from '../Actions/user';
+import { requestLogin } from '../Helpers/requests';
 
 const LoginForm = ({ onCancel }) => {
   const [userCred, setUserCred] = useState({ username: '', password: '' });
@@ -24,7 +24,7 @@ const LoginForm = ({ onCancel }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch(loginAction(userCred));
+    requestLogin(dispatch, userCred.username, userCred.password);
     e.target.reset();
     onCancel();
   };

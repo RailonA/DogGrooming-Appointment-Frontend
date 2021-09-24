@@ -1,24 +1,22 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import fetchServicesAction from '../Actions/services';
-import ViewService from '../Components/viewService';
+import ServiceList from '../Components/serviceList';
+import requestServiceInfo from '../Helpers/requests';
 
 const HomePage = () => {
-  const serviceData = useSelector((state) => state.services);
+  const serviceData = useSelector((state) => state.services.servicesCollection);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchServicesAction());
+    requestServiceInfo(dispatch);
   }, [dispatch]);
 
+  console.log(serviceData);
+
   return (
-    <>
-      <div>
-        {serviceData.loading
-          ? <span>Loading...</span>
-          : <ViewService allServices={serviceData} />}
-      </div>
-    </>
+    <div>
+      <ServiceList allServices={serviceData} />
+    </div>
   );
 };
 
