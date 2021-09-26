@@ -71,7 +71,7 @@ const UserProfile = () => {
         )
         : (
           <div>
-            <Button variant="primary" onClick={openLogin}>LOGIN</Button>
+            <Button variant="primary" onClick={openLogin} className="mr-2">LOGIN</Button>
             <Button type="button" variant="primary" onClick={openSignUp}>SIGN UP</Button>
           </div>
         )}

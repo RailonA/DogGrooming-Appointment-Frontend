@@ -42,7 +42,25 @@ const requestServiceInfo = async (dispatch) => {
     const response = await axios.get('http://localhost:3000/api/v1/services');
     const services = response.data;
     dispatch(getServiceInfo(services));
-    console.log(services);
+  } catch (error) {
+    return error.message;
+  }
+  return null;
+};
+
+export const requestAppointment = async (userId, serviceId, date, token) => {
+  try {
+    await axios.post(requests.appointments,
+      {
+        user_id: userId,
+        service_id: serviceId,
+        date,
+      },
+      {
+        headers: {
+          Authorization: token,
+        },
+      });
   } catch (error) {
     return error.message;
   }

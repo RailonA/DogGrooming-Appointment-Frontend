@@ -4,10 +4,13 @@ import { useParams } from 'react-router-dom';
 import ServiceList from '../Components/serviceList';
 import requestServiceInfo from '../Helpers/requests';
 
-const ServicePage = () => {
+const ServicesPage = () => {
   const serviceData = useSelector((state) => state.services.servicesCollection);
   const { category } = useParams();
   const dispatch = useDispatch();
+
+  console.log(category);
+  console.log(serviceData);
 
   useEffect(() => {
     requestServiceInfo(dispatch);
@@ -18,4 +21,4 @@ const ServicePage = () => {
   );
 };
 
-export default ServicePage;
+export default ServicesPage;

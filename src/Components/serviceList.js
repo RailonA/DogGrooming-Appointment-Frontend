@@ -1,17 +1,63 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../Assets/styles/serviceTable.css';
+import { Card, Modal } from 'react-bootstrap';
+import AppointmentForm from './appointmentform';
+
+import '../Assets/styles/serviceList.css';
 
 const ServiceList = ({ services, category }) => {
+  const [appointmnetProcess, setApointmnetProcess] = useState(false);
+
+  const openAppointmentForm = () => {
+    setApointmnetProcess(true);
+  };
+
+  const closeAppointmentForm = () => {
+    setApointmnetProcess(false);
+  };
+
   const filteredServices = services.filter((service) => service.category === category);
-  console.log(filteredServices);
+
   return (
-    <div>
+    <div className="container-fluid flex-column justify-content-center">
+      {appointmnetProcess
+        ? (
+          <Modal
+            show={appointmnetProcess}
+            onHide={closeAppointmentForm}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Body>
+              <AppointmentForm onCancel={closeAppointmentForm} />
+            </Modal.Body>
+          </Modal>
+        )
+        : null }
       {
         filteredServices.map((service) => (
-          <div key={service.category}>
-            <p>{service.petService}</p>
-          </div>
+          <Card onClick={openAppointmentForm} key={service.category}>
+            <table className="  m-3 col-10">
+              <tbody className=" col-12">
+                <tr className=" m-3 ">
+                  <div className="m-3 col-12 flex-container justify-content-center">
+                    <div className="col-12 d-flex justify-content-center">
+                      <h4 className=" col-8  d-flex justify-content-center serviceCategoryTitle p-2">{ service.petService }</h4>
+                    </div>
+                    <hr className=" col-10 " />
+                  </div>
+                  <div className="d-flex m-4 col-10 justify-content-center serviceCategoryBody">
+                    <td className=" col-9  text-center">{ service.serviceDescription }</td>
+                    <td className="d-flex col-1 text-center justify-content-center align-self-center serviceCategoryPrice">
+                      <p className="mr-2">$</p>
+                      <p>{ service.servicePrice }</p>
+                    </td>
+                  </div>
+                </tr>
+              </tbody>
+              <hr className=" col-12 " />
+            </table>
+          </Card>
         ))
       }
     </div>

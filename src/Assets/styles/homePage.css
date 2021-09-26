@@ -1,3 +1,23 @@
-.categoryCard {
-  width: 40vw;
+.mainPageTitles {
+  font-family: 'IM Fell DW Pica', serif;
+}
+
+.petCard {
+  background-color: rgb(70, 70, 70);
+  border-radius: 10px;
+}
+
+.mainPageTitlesCard {
+  background-color: rgb(15, 15, 15);
+  border-radius: 10px;
+  color: white;
+}
+
+.mainPageTitlesCard:hover {
+  color: rgb(5, 221, 210);
+  text-decoration: none;
+}
+
+.petCardImg {
+  border-radius: 10%;
 }
