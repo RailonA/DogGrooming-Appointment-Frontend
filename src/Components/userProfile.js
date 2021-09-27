@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { logoutAction } from '../Actions/user';
@@ -65,8 +66,8 @@ const UserProfile = () => {
       {userData.username
         ? (
           <div>
-            <span>{userData.username}</span>
-            <Button variant="primary" type="button" name="logout" onClick={handleLogout}>LOGOUT</Button>
+            <Link to="/user/:id" className="ml-3"><Button className="ml-3">{userData.username}</Button></Link>
+            <Button variant="primary" type="button" name="logout" className="ml-3" onClick={handleLogout}>LOGOUT</Button>
           </div>
         )
         : (

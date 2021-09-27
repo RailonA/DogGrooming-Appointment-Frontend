@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { loginAction } from '../Actions/user';
+import { loginAction, getUserInfo } from '../Actions/user';
 import getServiceInfo from '../Actions/services';
 
 const requests = {
@@ -35,6 +35,15 @@ export const requestLogin = async (dispatch, username, password) => {
     return error.message;
   }
   return null;
+};
+
+export const requestUserInfo = async (dispatch, id) => {
+  try {
+    const response = await axios.get(`${requests.users}/${id}`);
+    dispatch(getUserInfo(response.data));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const requestServiceInfo = async (dispatch) => {
