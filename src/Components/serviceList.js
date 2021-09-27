@@ -7,13 +7,15 @@ import '../Assets/styles/serviceList.css';
 
 const ServiceList = ({ services, category }) => {
   const [appointmnetProcess, setApointmnetProcess] = useState(false);
+  const [chooseService, setChooseService] = useState('');
 
-  const openAppointmentForm = () => {
+  const openAppointmentForm = (e, service) => {
     setApointmnetProcess(true);
+    setChooseService(service.id);
   };
-
   const closeAppointmentForm = () => {
     setApointmnetProcess(false);
+    setChooseService('');
   };
 
   const filteredServices = services.filter((service) => service.category === category);
@@ -27,16 +29,25 @@ const ServiceList = ({ services, category }) => {
             onHide={closeAppointmentForm}
             backdrop="static"
             keyboard={false}
+            setChooseService={setChooseService}
           >
             <Modal.Body>
-              <AppointmentForm onCancel={closeAppointmentForm} />
+              <AppointmentForm
+                onCancel={closeAppointmentForm}
+                serviceGroup={filteredServices}
+                serviceSelected={chooseService}
+                setChooseService={setChooseService}
+              />
             </Modal.Body>
           </Modal>
         )
         : null }
       {
         filteredServices.map((service) => (
-          <Card onClick={openAppointmentForm} key={service.category}>
+          <Card
+            onClick={(e) => openAppointmentForm(e, service)}
+            key={service.category}
+          >
             <table className="  m-3 col-10">
               <tbody className=" col-12">
                 <tr className=" m-3 ">

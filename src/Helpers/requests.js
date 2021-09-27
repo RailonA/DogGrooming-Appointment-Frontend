@@ -48,13 +48,13 @@ const requestServiceInfo = async (dispatch) => {
   return null;
 };
 
-export const requestAppointment = async (userId, serviceId, date, token) => {
+export const requestAppointment = async (userId, serviceId, selectedDate, token) => {
   try {
     await axios.post(requests.appointments,
       {
         user_id: userId,
         service_id: serviceId,
-        date,
+        date: selectedDate,
       },
       {
         headers: {

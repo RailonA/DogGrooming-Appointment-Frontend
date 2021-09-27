@@ -2,14 +2,12 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import ServiceList from '../Components/serviceList';
 import requestServiceInfo from '../Helpers/requests';
 import dogImg from '../Assets/images/dogGrooming.jpg';
 import catImg from '../Assets/images/catGrooming.jpeg';
 import '../Assets/styles/homePage.css';
 
 const HomePage = () => {
-  // const serviceData = useSelector((state) => state.services.servicesCollection);
   const dispatch = useDispatch();
 
   useEffect(() => {

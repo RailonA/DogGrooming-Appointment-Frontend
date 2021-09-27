@@ -4,40 +4,67 @@ import { useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { requestAppointment } from '../Helpers/requests';
 
-const AppointmentForm = ({ onCancel }) => {
-  // const [appointmentCred, setAppointmentCred] = useState({ petService: '', date: '', time: '' });
+const AppointmentForm = ({
+  onCancel,
+  serviceGroup,
+  serviceSelected,
+  setChooseService,
+}) => {
+  const [appointment, setApointment] = useState('');
+
   const userData = useSelector((state) => state.currentUser);
-  const [appointmentReserved, setAppointmentReserved] = useState('');
+
   let serviceId;
+  let date;
+
+  const options = serviceGroup.map((services) => (
+    <option value={services.id} key={services.id}>
+      {services.petService}
+    </option>
+  ));
 
   const handleChange = (e) => {
-    if (e.target.name === 'trip-date-selection') {
+    if (e.target.name === 'service-selection') {
       serviceId = e.target.value;
-      setAppointmentReserved(serviceId);
+      setChooseService(serviceId);
+    }
+    if (e.target.name === 'appointmentDate') {
+      date = e.target.value;
+      setApointment(date);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    requestAppointment(userData.id, appointmentReserved, userData.token);
+    requestAppointment(userData.id, appointment, serviceSelected, userData.token);
   };
+  console.log(userData.id);
+  console.log(appointment);
+  console.log(serviceSelected);
 
   return (
     <form onSubmit={handleSubmit}>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>Regester Appointment</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <input name="petService" type="text" placeholder="Enter Username" onChange={handleChange} />
+        <div>
+          <p value={userData.id}>{userData.username}</p>
+          <select name="service-selection" onChange={handleChange} value={serviceSelected}>
+            {options}
+          </select>
+        </div>
         <input
           id="appointment"
           type="datetime-local"
-          name="partydate"
+          name="appointmentDate"
           min="09:00"
-          max="18:00"
+          max="20:00"
+          onChange={handleChange}
         />
       </Modal.Body>
       <Modal.Footer>
+        <Button type="submit" variant="primary">Confirm</Button>
         <Button type="button" variant="secondary" onClick={onCancel}>Close</Button>
       </Modal.Footer>
     </form>
@@ -46,6 +73,9 @@ const AppointmentForm = ({ onCancel }) => {
 
 AppointmentForm.propTypes = {
   onCancel: PropTypes.func.isRequired,
+  serviceGroup: PropTypes.string.isRequired,
+  serviceSelected: PropTypes.string.isRequired,
+  setChooseService: PropTypes.string.isRequired,
 };
 
 export default AppointmentForm;

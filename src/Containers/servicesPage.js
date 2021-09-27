@@ -9,9 +9,6 @@ const ServicesPage = () => {
   const { category } = useParams();
   const dispatch = useDispatch();
 
-  console.log(category);
-  console.log(serviceData);
-
   useEffect(() => {
     requestServiceInfo(dispatch);
   }, [dispatch]);
