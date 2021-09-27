@@ -36,11 +36,22 @@ const AppointmentForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    requestAppointment(userData.id, appointment, serviceSelected, userData.token);
+    requestAppointment(userData.id, serviceSelected, appointment, userData.token);
   };
-  console.log(userData.id);
-  console.log(appointment);
-  console.log(serviceSelected);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   requestAppointment(
+  //     parseInt(userData.id, 10),
+  //     appointment,
+  //     parseInt(serviceSelected, 10),
+  //     userData.token,
+  //   );
+  //   console.log(userData.id);
+  //   console.log(appointment);
+  //   console.log(serviceSelected);
+  //   console.log(userData.token);
+  // };
 
   return (
     <form onSubmit={handleSubmit}>
