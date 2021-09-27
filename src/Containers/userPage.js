@@ -10,7 +10,7 @@ const UserPage = () => {
     requestUserInfo(dispatch, userData.id);
   }, [dispatch]);
 
-  console.log(userData.appointments.reserved_service);
+  console.log(userData.appointments);
 
   return (
     <div>
@@ -21,7 +21,7 @@ const UserPage = () => {
             Service Requested:
             {appointments.petService}
             <p className="d-flex">
-              {appointments.petService}
+              {appointments.serviceDescription}
             </p>
             <p>{appointments.servicePrice}</p>
           </div>
