@@ -18,9 +18,8 @@ export const requestSignup = async (username, password, passwordConf) => {
         password_confirmation: passwordConf,
       });
   } catch (error) {
-    return error.message;
+    console.log(error);
   }
-  return null;
 };
 
 export const requestLogin = async (dispatch, username, password) => {
@@ -32,9 +31,8 @@ export const requestLogin = async (dispatch, username, password) => {
       });
     dispatch(loginAction(response.data));
   } catch (error) {
-    return error.message;
+    console.log(error);
   }
-  return null;
 };
 
 export const requestUserInfo = async (dispatch, id) => {
@@ -52,9 +50,8 @@ const requestServiceInfo = async (dispatch) => {
     const services = response.data;
     dispatch(getServiceInfo(services));
   } catch (error) {
-    return error.message;
+    console.log(error);
   }
-  return null;
 };
 
 export const requestAppointment = async (userId, serviceId, selectedDate, token) => {
@@ -71,9 +68,8 @@ export const requestAppointment = async (userId, serviceId, selectedDate, token)
         },
       });
   } catch (error) {
-    return error.message;
+    console.log(error);
   }
-  return null;
 };
 
 export default requestServiceInfo;

@@ -11,7 +11,7 @@ const UserPage = () => {
     requestUserInfo(dispatch, userData.id);
   }, [dispatch]);
 
-  console.log(userData.appointments.appointments);
+  console.log(userData);
 
   return (
 

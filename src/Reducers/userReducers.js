@@ -30,7 +30,7 @@ const userReducer = (state = initialState, action) => {
         appointments: [],
       };
     case GET_USER_INFO:
-      return { ...state, appointments: action.payload };
+      return { ...state, appointments: action.payload, loading: false };
     default:
       return state;
   }
