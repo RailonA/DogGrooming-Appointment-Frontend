@@ -37,6 +37,8 @@ const AppointmentForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     requestAppointment(userData.id, serviceSelected, appointment, userData.token);
+    e.target.reset();
+    onCancel();
   };
 
   return (
