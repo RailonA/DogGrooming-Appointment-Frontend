@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { requestAppointment } from '../Helpers/requests';
 
@@ -13,6 +13,7 @@ const AppointmentForm = ({
   const [appointment, setApointment] = useState('');
 
   const userData = useSelector((state) => state.currentUser);
+  const dispatch = useDispatch();
 
   let serviceId;
   let date;
@@ -36,7 +37,7 @@ const AppointmentForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    requestAppointment(userData.id, serviceSelected, appointment, userData.token);
+    requestAppointment(dispatch, userData.id, serviceSelected, appointment, userData.token);
     e.target.reset();
     onCancel();
   };

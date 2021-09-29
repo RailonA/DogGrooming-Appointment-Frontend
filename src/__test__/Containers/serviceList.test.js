@@ -29,11 +29,7 @@ describe('serviceList', () => {
       servicePrice: '81.00',
     },
   ];
-  const category = [
-    {
-      category: 'dog',
-    },
-  ];
+  const category = { category: 'dog' };
 
   it('should match the snapshot', () => {
     const wrapper = renderer.create(
