@@ -1,14 +1,14 @@
-# REACT & REDUX COCKTAILS APP
+# REACT & REDUX  Pet Grooming Frontend APP
 
-> Trips reservation app using React, Redux and [Trips Reservation API](https://github.com/bettercallazamat/rails-trips-api/);
+> Pet Grooming app using React, Redux and [Pet Grooming API Databse](https://github.com/RailonA/DogGrooming-Database);
 
 ## Watch the Live Version
 
 [Live Demo](https://petgroomingservice.herokuapp.com/)
 
-![screenshot1](./Assets/images/mainPage.png)
+![screenshot1](./src/Assets/images/mainPage.png)
 
-![screenshot2](./Assets/images/serviceList.png)
+![screenshot2](./src/Assets/images/serviceList.png)
 
 ![screenshot3]()
 
@@ -27,10 +27,9 @@
 - Jest
 
 ### Features
-- Viewing the list of trips
-- Viewing a trip's details
-- Viewing a user's details(info, reservations made)
-- Making reservation for a trip
+- Viewing the list of services
+- Viewing a user's details(info, appointment made)
+- Making appointment for a service
 - Login / Logout / Signup
 - Modal messages of success/failure
 
