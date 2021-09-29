@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestUserInfo } from '../Helpers/requests';
+import convertDate from '../Helpers/convertDate';
 import '../Assets/styles/userPage.css';
 
 const UserPage = () => {
@@ -12,19 +13,18 @@ const UserPage = () => {
   }, [dispatch]);
 
   console.log(userData);
-
   return (
     <div>
+      <div className="d-flex">
+        <p className="mr-3  col-2 font-weight-bold">Username:</p>
+        <p>{userData.username}</p>
+      </div>
       {
         userData.loading
           ? <span>Loading ...</span>
           : (
             <div className="col-10 m-4 d-flex justify-content-center">
               <div>
-                <div className="d-flex">
-                  <p className="mr-3  col-2 font-weight-bold">Username:</p>
-                  <p>{userData.username}</p>
-                </div>
                 { userData.appointments.appointments.map((appointments) => (
                   <div className="col-10" key={appointments.id}>
                     <div className="d-flex col-12">
@@ -45,11 +45,11 @@ const UserPage = () => {
                     </div>
                     <div className="d-flex col-12">
                       <p className="mr-3 col-3 font-weight-bold">Appointments Date:</p>
-                      <p>{appointments.date}</p>
+                      <p>{convertDate(new Date(appointments.date))}</p>
                     </div>
                     <div className="d-flex col-12">
                       <p className="mr-3 col-3 font-weight-bold">Appointments Was Created At :</p>
-                      <p>{appointments.created_at}</p>
+                      <p>{convertDate(new Date(appointments.created_at))}</p>
                     </div>
                     <hr className=" col-12 tm-4 tb-4 mainHr" />
                   </div>

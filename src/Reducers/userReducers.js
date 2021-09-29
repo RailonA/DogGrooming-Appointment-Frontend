@@ -34,7 +34,7 @@ const userReducer = (state = initialState, action) => {
     case GET_USER_INFO_REQUEST:
       return { ...state, loading: true };
     case GET_USER_INFO_SUCCESS:
-      return { ...state, reservations: action.payload, loading: false };
+      return { ...state, appointments: action.payload.appointments, loading: false };
     case GET_USER_INFO_FAILURE:
       return { ...state, loading: false };
     default:
