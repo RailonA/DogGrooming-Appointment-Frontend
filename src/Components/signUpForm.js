@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { requestSignup } from '../Helpers/requests';
 
 const SignUpForm = ({ onCancel }) => {
   const [userCred, setUserCred] = useState({ username: '', password: '', passwordConfirmation: '' });
+  const dispatch = useDispatch();
 
   let username;
   let password;
@@ -26,7 +28,7 @@ const SignUpForm = ({ onCancel }) => {
   };
 
   const handleSignUp = (e) => {
-    requestSignup(userCred.username, userCred.password, userCred.passwordConfirmation);
+    requestSignup(dispatch, userCred.username, userCred.password, userCred.passwordConfirmation);
     e.preventDefault();
     e.target.reset();
     onCancel();
@@ -34,7 +36,7 @@ const SignUpForm = ({ onCancel }) => {
 
   return (
     <form onSubmit={handleSignUp}>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>Sign Up</Modal.Title>
       </Modal.Header>
       <Modal.Body>

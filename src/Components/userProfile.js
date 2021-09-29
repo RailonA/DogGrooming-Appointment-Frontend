@@ -5,6 +5,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { logoutAction } from '../Actions/user';
 import LoginForm from './loginForm';
 import SignUpForm from './signUpForm';
+import { sendFeedbackAction } from '../Actions/feedback';
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const UserProfile = () => {
 
   const handleLogout = () => {
     dispatch(logoutAction());
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully logged out.' }));
   };
 
   const openSignUp = () => {

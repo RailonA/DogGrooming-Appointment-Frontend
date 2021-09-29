@@ -1,6 +1,18 @@
 import axios from 'axios';
-import { loginAction, getUserInfo } from '../Actions/user';
-import getServiceInfo from '../Actions/services';
+import {
+  loginAction,
+  getUserInfoRequest,
+  getUserInfoSuccess,
+  getUserInfoFailure,
+} from '../Actions/user';
+import {
+  getServiceRequest,
+  getServiceSuccess,
+  getServiceFailure,
+} from '../Actions/services';
+
+import { sendFeedbackAction } from '../Actions/feedback';
+import handleError from './handleError';
 
 const requests = {
   users: 'http://localhost:3000/api/v1/users',
@@ -9,16 +21,19 @@ const requests = {
   appointments: 'http://localhost:3000/api/v1/appointments',
 };
 
-export const requestSignup = async (username, password, passwordConf) => {
+export const requestUserInfo = async (dispatch, id, token) => {
   try {
-    await axios.post(requests.users,
+    dispatch(getUserInfoRequest());
+    const response = await axios.get(`${requests.users}/${id}`,
       {
-        username,
-        password,
-        password_confirmation: passwordConf,
+        headers: {
+          Authorization: token,
+        },
       });
+    dispatch(getUserInfoSuccess(response.data));
   } catch (error) {
-    console.log(error);
+    dispatch(getUserInfoFailure());
+    handleError(dispatch, 'userInfo', error);
   }
 };
 
@@ -29,32 +44,42 @@ export const requestLogin = async (dispatch, username, password) => {
         username,
         password,
       });
-    dispatch(loginAction(response.data));
+    if (response.data.auth_token) {
+      dispatch(loginAction(response.data));
+      requestUserInfo(dispatch, response.data.id, response.data.auth_token);
+      dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully logged in.' }));
+    }
   } catch (error) {
-    console.log(error);
+    handleError(dispatch, 'login', error);
   }
 };
 
-export const requestUserInfo = async (dispatch, id) => {
+export const requestSignup = async (dispatch, username, password, passwordConf) => {
   try {
-    const response = await axios.get(`${requests.users}/${id}`);
-    dispatch(getUserInfo(response.data));
+    await axios.post(requests.users,
+      {
+        username,
+        password,
+        password_confirmation: passwordConf,
+      });
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'User successfully created.' }));
+    requestLogin(dispatch, username, password);
   } catch (error) {
-    console.log(error);
+    handleError(dispatch, 'signup', error);
   }
 };
-
 const requestServiceInfo = async (dispatch) => {
   try {
+    dispatch(getServiceRequest());
     const response = await axios.get('http://localhost:3000/api/v1/services');
-    const services = response.data;
-    dispatch(getServiceInfo(services));
+    dispatch(getServiceSuccess(response.data));
   } catch (error) {
-    console.log(error);
+    dispatch(getServiceFailure);
+    handleError(dispatch, 'service', error);
   }
 };
 
-export const requestAppointment = async (userId, serviceId, selectedDate, token) => {
+export const requestAppointment = async (dispatch, userId, serviceId, selectedDate, token) => {
   try {
     await axios.post(requests.appointments,
       {
@@ -67,8 +92,9 @@ export const requestAppointment = async (userId, serviceId, selectedDate, token)
           Authorization: token,
         },
       });
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully reserved trip.' }));
   } catch (error) {
-    console.log(error);
+    handleError(dispatch, 'appointment', error);
   }
 };
 
