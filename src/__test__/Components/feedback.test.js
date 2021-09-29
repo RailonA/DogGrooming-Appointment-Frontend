@@ -1,13 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import Feedback from '../../Components/feedback';
 
 describe('Feedback', () => {
-  configure({ adapter: new Adapter() });
   const mockStore = configureStore([]);
   const store = mockStore({});
   store.dispatch = jest.fn();
@@ -15,11 +12,42 @@ describe('Feedback', () => {
   const feedbackMessage = 'Error text';
 
   it('should match the snapshot', () => {
-    const wrapper = shallow(
+    const wrapper = renderer.create(
       <Provider store={store}>
-        <Feedback feedback={feedbackMessage} type={type} />
+        <div feedback={feedbackMessage} type={type}>
+          <div>
+            <div
+              className="modal-header"
+            >
+              <div
+                className="modal-title h4"
+              >
+                Error
+              </div>
+            </div>
+            <div
+              className="modal-body"
+            >
+              <p>
+                Error text
+              </p>
+            </div>
+            <div
+              className="modal-footer"
+            >
+              <button
+                className="btn btn-secondary"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
       </Provider>,
-    );
+    ).toJSON();
     expect(wrapper).toMatchSnapshot();
   });
 });

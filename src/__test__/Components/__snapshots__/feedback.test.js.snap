@@ -1,3 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Feedback should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`Feedback should match the snapshot 1`] = `
+<div
+  feedback="Error text"
+  type="error"
+>
+  <div>
+    <div
+      className="modal-header"
+    >
+      <div
+        className="modal-title h4"
+      >
+        Error
+      </div>
+    </div>
+    <div
+      className="modal-body"
+    >
+      <p>
+        Error text
+      </p>
+    </div>
+    <div
+      className="modal-footer"
+    >
+      <button
+        className="btn btn-secondary"
+        disabled={false}
+        onClick={
+          Array [
+            [Function],
+          ]
+        }
+        type="button"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
+`;

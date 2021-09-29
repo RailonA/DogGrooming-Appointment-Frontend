@@ -1,11 +1,9 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import renderer from 'react-test-renderer';
 import ServiceList from '../../Components/serviceList';
 
-describe('servicePage', () => {
-  configure({ adapter: new Adapter() });
+describe('serviceList', () => {
   const services = [
     {
       id: 1,
@@ -31,9 +29,16 @@ describe('servicePage', () => {
       servicePrice: '81.00',
     },
   ];
+  const category = [
+    {
+      category: 'dog',
+    },
+  ];
 
   it('should match the snapshot', () => {
-    const wrapper = shallow(<ServiceList services={services} />);
+    const wrapper = renderer.create(
+      <ServiceList services={services} category={category} />,
+    ).toJSON();
     expect(wrapper).toMatchSnapshot();
   });
 });

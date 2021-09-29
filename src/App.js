@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Modal } from 'react-bootstrap';
 import requestServiceInfo from './Helpers/requests';
 import Routes from './routes';
 import Feedback from './Components/feedback';
@@ -15,7 +16,14 @@ function App() {
   return (
     <div>
       { feedbackData.active
-        ? <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
+        ? (
+          <Modal.Body
+            backdrop="static"
+            keyboard={false}
+          >
+            <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
+          </Modal.Body>
+        )
         : null }
       <Routes />
     </div>

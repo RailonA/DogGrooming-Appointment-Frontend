@@ -1,15 +1,25 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import '@testing-library/jest-dom/extend-expect';
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { BrowserRouter as Router } from 'react-router-dom';
-import NavBar from '../../Components/navBar';
+import renderer from 'react-test-renderer';
+import { BrowserRouter, Link } from 'react-router-dom';
+import UserProfile from '../../Components/userProfile';
+import store from '../../Store/store';
 
-describe('TripCard', () => {
-  configure({ adapter: new Adapter() });
-
+describe('NavBar', () => {
   it('should match the snapshot', () => {
-    const wrapper = shallow(<Router><NavBar /></Router>);
+    const wrapper = renderer.create(
+      <div className="d-flex justify-content-between p-2 bg-dark text-white">
+        <Provider store={store}>
+          <BrowserRouter>
+            <Link to="/" className="headerText">
+              <h2>Pet Groomer</h2>
+            </Link>
+            <UserProfile />
+          </BrowserRouter>
+        </Provider>
+      </div>,
+    ).toJSON();
     expect(wrapper).toMatchSnapshot();
   });
 });

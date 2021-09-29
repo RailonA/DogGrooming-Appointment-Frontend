@@ -1,15 +1,14 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { shallow, configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import AppointmentForm from '../../Components/appointmentform';
+import renderer from 'react-test-renderer';
+import { Button, Modal } from 'react-bootstrap';
 
 const mockStore = configureStore([]);
 
 const initialState = {
-  currentUser: {
+  user: {
     id: 1,
     username: 'railon',
     token: 'TOKEN',
@@ -35,10 +34,9 @@ const initialState = {
   },
 };
 
-describe('TripCard', () => {
+describe('Appointment Form', () => {
   let store;
-  configure({ adapter: new Adapter() });
-  const services = [
+  const options = [
     {
       id: 1,
       category: 'dog',
@@ -61,11 +59,32 @@ describe('TripCard', () => {
     store = mockStore(initialState);
     store.dispatch = jest.fn();
 
-    const wrapper = shallow(
+    const wrapper = renderer.create(
       <Provider store={store}>
-        <AppointmentForm serviceList={services} />
+        <Modal.Header>
+          <Modal.Title>Regester Appointment</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div>
+            <p>{initialState.username}</p>
+            <select name="service-selection">
+              {options.petService}
+            </select>
+          </div>
+          <input
+            id="appointment"
+            type="datetime-local"
+            name="appointmentDate"
+            min="09:00"
+            max="20:00"
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button type="submit" variant="primary">Confirm</Button>
+          <Button type="button" variant="secondary">Close</Button>
+        </Modal.Footer>
       </Provider>,
-    );
+    ).toJSON();
     expect(wrapper).toMatchSnapshot();
   });
 });
