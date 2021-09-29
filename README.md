@@ -4,7 +4,7 @@
 
 ## Watch the Live Version
 
-[Live Demo]()
+[Live Demo](https://petgroomingservice.herokuapp.com/)
 
 ![screenshot1](./Assets/images/mainPage.png)
 
@@ -61,7 +61,7 @@ Open `http://localhost:3000` to view running project in the browser.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/bettercallazamat/react-trips/issues).
+Feel free to check the [issues page](https://github.com/RailonA/DogGrooming-Appointment-Frontend/issues).
 
 ## Show your support
 
