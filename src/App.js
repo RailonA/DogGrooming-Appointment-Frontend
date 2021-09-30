@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import requestServiceInfo from './Helpers/requests';
@@ -13,16 +13,26 @@ function App() {
     requestServiceInfo(dispatch);
   }, [dispatch]);
 
+  const [errorState, setErrorOpen] = useState(feedbackData);
+
+  const closeError = () => {
+    setErrorOpen(false);
+  };
+
   return (
     <div>
       { feedbackData.active
         ? (
-          <Modal.Body
+          <Modal
+            show={errorState}
+            onHide={closeError}
             backdrop="static"
             keyboard={false}
           >
-            <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
-          </Modal.Body>
+            <Modal.Body>
+              <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
+            </Modal.Body>
+          </Modal>
         )
         : null }
       <Routes />
