@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should match the snapshot 1`] = `
+<div
+  className="d-flex justify-content-between p-2 bg-dark text-white"
+>
+  <a
+    className="headerText"
+    href="/"
+    onClick={[Function]}
+  >
+    <h2>
+      Pet Groomer
+    </h2>
+  </a>
+  <div
+    className="UserProfile"
+  >
+    <div>
+      <button
+        className="mr-2 btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        LOGIN
+      </button>
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        SIGN UP
+      </button>
+    </div>
+  </div>
+</div>
+`;

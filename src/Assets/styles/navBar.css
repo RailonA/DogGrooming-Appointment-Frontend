@@ -1,0 +1,9 @@
+.headerText {
+  font-family: 'Jua', sans-serif;
+  color: white;
+}
+
+.headerText:hover {
+  color: rgb(5, 221, 210);
+  text-decoration: none;
+}
