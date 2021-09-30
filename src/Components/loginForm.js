@@ -31,7 +31,7 @@ const LoginForm = ({ onCancel }) => {
 
   return (
     <form onSubmit={handleLogin}>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>LOG IN</Modal.Title>
       </Modal.Header>
       <Modal.Body>

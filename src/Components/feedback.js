@@ -5,6 +5,7 @@ import { setFeedbackInactiveAction } from '../Actions/feedback';
 
 const Feedback = ({ type, feedback }) => {
   const dispatch = useDispatch();
+
   const title = type === 'error' ? 'Error' : 'Success';
 
   const handleClick = () => {

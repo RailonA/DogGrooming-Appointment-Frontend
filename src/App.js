@@ -1,31 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import requestServiceInfo from './Helpers/requests';
 import Routes from './routes';
 import Feedback from './Components/feedback';
+import { setFeedbackInactiveAction } from './Actions/feedback';
 
 function App() {
   const dispatch = useDispatch();
   const feedbackData = useSelector((state) => state.feedback);
 
+  const closeError = () => {
+    dispatch(setFeedbackInactiveAction());
+    // feedbackData(false);
+  };
+
   useEffect(() => {
     requestServiceInfo(dispatch);
   }, [dispatch]);
 
-  const [errorState, setErrorOpen] = useState(feedbackData);
-
-  const closeError = () => {
-    setErrorOpen(false);
-  };
+  useEffect(() => {
+    if (feedbackData.active) {
+      setTimeout(() => closeError(), 5000);
+    }
+  }, [feedbackData]);
 
   return (
     <div>
       { feedbackData.active
         ? (
           <Modal
-            show={errorState}
-            onHide={closeError}
+            show={feedbackData}
             backdrop="static"
             keyboard={false}
           >
