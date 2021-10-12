@@ -66,7 +66,7 @@ const AppointmentForm = ({
       </Modal.Body>
       <Modal.Footer>
         <Button type="submit" className="navBarButton">Confirm</Button>
-        <Button type="button" variant="secondary" onClick={onCancel}>Close</Button>
+        <Button type="button" className="navBarButton" onClick={onCancel}>Close</Button>
       </Modal.Footer>
     </form>
   );
