@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Modal } from 'react-bootstrap';
-import AppointmentForm from './appointmentform';
+import AppointmentForm from '../Components/appointmentform';
 
 import '../Assets/styles/serviceList.css';
 

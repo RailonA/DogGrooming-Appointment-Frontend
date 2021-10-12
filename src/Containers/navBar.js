@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import UserProfile from './userProfile';
+import UserProfile from '../Components/userProfile';
 import '../Assets/styles/navBar.css';
 
 const NavBar = () => (

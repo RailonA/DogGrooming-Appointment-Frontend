@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ServiceList from '../Components/serviceList';
+import ServiceList from '../Containers/serviceList';
 import requestServiceInfo from '../Helpers/requests';
 
 const ServicesPage = () => {

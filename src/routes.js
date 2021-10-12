@@ -2,11 +2,11 @@ import React from 'react';
 import {
   Route, BrowserRouter, Switch, Redirect,
 } from 'react-router-dom';
-import HomePage from './Containers/homePage';
-import ServicesPage from './Containers/servicesPage';
-import UserPage from './Containers/userPage';
-import Page404 from './Containers/Page404';
-import Nav from './Components/navBar';
+import HomePage from './Pages/homePage';
+import ServicesPage from './Pages/servicesPage';
+import UserPage from './Pages/userPage';
+import Page404 from './Pages/Page404';
+import Nav from './Containers/navBar';
 
 const Routes = () => (
   <BrowserRouter>
