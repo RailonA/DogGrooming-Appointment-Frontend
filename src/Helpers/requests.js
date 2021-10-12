@@ -74,7 +74,6 @@ const requestServiceInfo = async (dispatch) => {
     dispatch(getServiceRequest());
     const response = await axios.get('http://localhost:3000/api/v1/services');
     dispatch(getServiceSuccess(response.data));
-    console.log(response);
   } catch (error) {
     dispatch(getServiceFailure);
     handleError(dispatch, 'service', error);
