@@ -23,7 +23,7 @@ const HomePage = () => {
       <div className="d-flex justify-content-around col-12 mb-5">
         <Link to="/category/dog" className="petCard col-5">
           <div className="mainPageTitlesCard d-flex justify-content-center m-3 ">
-            <h2 className="mainPageTitles">Dog</h2>
+            <h2 className="mainPageTitles p-2">Dog</h2>
           </div>
           <div className="d-flex justify-content-center mb-3">
             <img src={dogImg} className="petCardImg col-10" alt="dogGrooming" />
@@ -31,7 +31,7 @@ const HomePage = () => {
         </Link>
         <Link to="/category/cat" className="petCard col-5">
           <div className="mainPageTitlesCard d-flex justify-content-center m-3">
-            <h2 className="mainPageTitles">Cat</h2>
+            <h2 className="mainPageTitles p-2">Cat</h2>
           </div>
           <div className="d-flex justify-content-center mb-3">
             <img src={catImg} className="petCardImg col-10" alt="catGrooming" />

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { requestAppointment } from '../Helpers/requests';
+import '../Assets/styles/navBar.css';
 
 const AppointmentForm = ({
   onCancel,
@@ -64,7 +65,7 @@ const AppointmentForm = ({
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button type="submit" variant="primary">Confirm</Button>
+        <Button type="submit" className="navBarButton">Confirm</Button>
         <Button type="button" variant="secondary" onClick={onCancel}>Close</Button>
       </Modal.Footer>
     </form>

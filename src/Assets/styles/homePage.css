@@ -23,14 +23,15 @@ body {
 }
 
 .petCard {
-  background-color: rgb(70, 70, 70);
+  background-color: rgb(32, 71, 0);
   border-radius: 10px;
 }
 
 .mainPageTitlesCard {
-  background-color: rgb(15, 15, 15);
+  background-color: rgb(81, 136, 35);
   border-radius: 10px;
   color: white;
+  font-weight: bold;
 }
 
 .mainPageTitlesCard:hover {

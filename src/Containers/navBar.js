@@ -5,7 +5,7 @@ import UserProfile from '../Components/userProfile';
 import '../Assets/styles/navBar.css';
 
 const NavBar = () => (
-  <div className="headerNavbar flex-column h-100 justify-content-between p-2 bg-dark text-white">
+  <div className="headerNavbar flex-column h-100 justify-content-between p-2  text-white">
     <Link to="/" className="headerText">
       <h2 className="m-2">Pet Groomer</h2>
     </Link>
@@ -13,22 +13,22 @@ const NavBar = () => (
     <div className="d-flex justify-content-between p-3 socialLinks col-12">
       <div>
         <a target="_blank" rel="noreferrer" href="https://www.facebook.com/RailonA.ArtStudio">
-          <p><FaFacebookF /></p>
+          <p><FaFacebookF className="socialButton" /></p>
         </a>
       </div>
       <div>
         <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/railon-acosta/">
-          <p><GrLinkedinOption /></p>
+          <p><GrLinkedinOption className="socialButton" /></p>
         </a>
       </div>
       <div>
         <a target="_blank" rel="noreferrer" href="https://github.com/RailonA">
-          <p><GrGithub /></p>
+          <p><GrGithub className="socialButton" /></p>
         </a>
       </div>
       <div>
         <a target="_blank" rel="noreferrer" href="https://twitter.com/RailonAcosta">
-          <p><GrTwitter /></p>
+          <p><GrTwitter className="socialButton" /></p>
         </a>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { requestLogin } from '../Helpers/requests';
+import '../Assets/styles/navBar.css';
 
 const LoginForm = ({ onCancel }) => {
   const [userCred, setUserCred] = useState({ username: '', password: '' });
@@ -39,8 +40,8 @@ const LoginForm = ({ onCancel }) => {
         <input name="password" type="password" placeholder="*****" onChange={handleChange} />
       </Modal.Body>
       <Modal.Footer>
-        <Button type="submit" variant="primary">Log In</Button>
-        <Button type="button" variant="secondary" onClick={onCancel}>Close</Button>
+        <Button type="submit" className="navBarButton">Log In</Button>
+        <Button type="button" className="navBarButton" onClick={onCancel}>Close</Button>
       </Modal.Footer>
     </form>
   );

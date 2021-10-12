@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { requestSignup } from '../Helpers/requests';
+import '../Assets/styles/navBar.css';
 
 const SignUpForm = ({ onCancel }) => {
   const [userCred, setUserCred] = useState({ username: '', password: '', passwordConfirmation: '' });
@@ -47,7 +48,7 @@ const SignUpForm = ({ onCancel }) => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button type="submit" variant="primary">SIGN UP</Button>
+        <Button type="submit" className="navBarButton">SIGN UP</Button>
         <Button type="button" variant="secondary" onClick={onCancel}>Cancel</Button>
       </Modal.Footer>
     </form>

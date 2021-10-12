@@ -6,6 +6,7 @@ import { logoutAction } from '../Actions/user';
 import LoginForm from './loginForm';
 import SignUpForm from './signUpForm';
 import { sendFeedbackAction } from '../Actions/feedback';
+import '../Assets/styles/navBar.css';
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -69,13 +70,13 @@ const UserProfile = () => {
         ? (
           <div>
             <Link to="/user/:id" className="ml-3"><Button className="ml-3">{userData.username}</Button></Link>
-            <Button variant="primary" type="button" name="logout" className="ml-3" onClick={handleLogout}>LOGOUT</Button>
+            <Button type="button" name="logout" className="ml-3 navBarButton" onClick={handleLogout}>LOGOUT</Button>
           </div>
         )
         : (
           <div className="d-flex flex-column">
-            <Button variant="primary" onClick={openLogin} className="mt-2 mb-3">LOGIN</Button>
-            <Button type="button" variant="primary" onClick={openSignUp}>SIGN UP</Button>
+            <Button onClick={openLogin} className="mt-5 mb-3 navBarButton">LOGIN</Button>
+            <Button type="button" onClick={openSignUp} className="navBarButton">SIGN UP</Button>
           </div>
         )}
     </div>

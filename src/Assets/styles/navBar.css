@@ -1,10 +1,18 @@
-.headerText {
-  font-family: 'Jua', sans-serif;
+.navBarButton {
+  background-color: rgb(123, 180, 75);
   color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.headerText {
+  margin-top: 20px;
+  font-family: 'Jua', sans-serif;
+  color: rgb(58, 58, 58);
 }
 
 .headerText:hover {
-  color: rgb(5, 221, 210);
+  color: rgb(123, 180, 75);
   text-decoration: none;
 }
 
@@ -12,4 +20,8 @@
   position: absolute;
   left: 0;
   bottom: 0;
+}
+
+.socialButton {
+  color: rgb(32, 71, 0);
 }
