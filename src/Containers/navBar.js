@@ -5,32 +5,36 @@ import UserProfile from '../Components/userProfile';
 import '../Assets/styles/navBar.css';
 
 const NavBar = () => (
-  <div className="headerNavbar flex-md-row flex-column  h-100 justify-content-between p-2  text-white">
-    <Link to="/" className="headerDiv">
-      <h2 className="m-2 text-center headerText">Pet</h2>
-      <h2 className="m-2 headerText">Groomer</h2>
-    </Link>
-    <UserProfile />
-    <div className="d-flex justify-content-between p-3 socialLinks col-12">
-      <div>
-        <a target="_blank" rel="noreferrer" href="https://www.facebook.com/RailonA.ArtStudio">
-          <p><FaFacebookF className="socialButton" /></p>
-        </a>
+  <div className="headerNavbar  p-2  text-white">
+    <div className="flex-column">
+      <div className="navGroupOne d-flex">
+        <Link to="/" className="headerDiv">
+          <h2 className="m-2 text-center headerText">Pet</h2>
+          <h2 className="m-2 headerText">Groomer</h2>
+        </Link>
+        <UserProfile />
       </div>
-      <div>
-        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/railon-acosta/">
-          <p><GrLinkedinOption className="socialButton" /></p>
-        </a>
-      </div>
-      <div>
-        <a target="_blank" rel="noreferrer" href="https://github.com/RailonA">
-          <p><GrGithub className="socialButton" /></p>
-        </a>
-      </div>
-      <div>
-        <a target="_blank" rel="noreferrer" href="https://twitter.com/RailonAcosta">
-          <p><GrTwitter className="socialButton" /></p>
-        </a>
+      <div className="d-flex justify-content-between p-3 socialLinks col-12">
+        <div>
+          <a target="_blank" rel="noreferrer" href="https://www.facebook.com/RailonA.ArtStudio">
+            <p><FaFacebookF className="socialButton" /></p>
+          </a>
+        </div>
+        <div>
+          <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/railon-acosta/">
+            <p><GrLinkedinOption className="socialButton" /></p>
+          </a>
+        </div>
+        <div>
+          <a target="_blank" rel="noreferrer" href="https://github.com/RailonA">
+            <p><GrGithub className="socialButton" /></p>
+          </a>
+        </div>
+        <div>
+          <a target="_blank" rel="noreferrer" href="https://twitter.com/RailonAcosta">
+            <p><GrTwitter className="socialButton" /></p>
+          </a>
+        </div>
       </div>
     </div>
   </div>

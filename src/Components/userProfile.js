@@ -74,8 +74,8 @@ const UserProfile = () => {
           </div>
         )
         : (
-          <div className="d-flex flex-column">
-            <Button onClick={openLogin} className="mt-5 mb-3 navBarButton">LOGIN</Button>
+          <div className="loginSignUpBtns">
+            <Button onClick={openLogin} className="navBarButton">LOGIN</Button>
             <Button type="button" onClick={openSignUp} className="navBarButton">SIGN UP</Button>
           </div>
         )}
