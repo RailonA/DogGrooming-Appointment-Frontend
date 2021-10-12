@@ -10,7 +10,7 @@ const NavBar = () => (
       <h2 className="m-2">Pet Groomer</h2>
     </Link>
     <UserProfile />
-    <div className="d-flex justify-content-between p-3 socialLinks">
+    <div className="d-flex justify-content-between p-3 socialLinks col-12">
       <div>
         <a target="_blank" rel="noreferrer" href="https://www.facebook.com/RailonA.ArtStudio">
           <p><FaFacebookF /></p>
