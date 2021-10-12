@@ -69,7 +69,7 @@ const UserProfile = () => {
       {userData.username
         ? (
           <div>
-            <Link to="/user/:id" className="ml-3"><Button className="ml-3">{userData.username}</Button></Link>
+            <Link to="/user/:id" className="ml-3"><Button className="ml-3 navBarButton">{userData.username}</Button></Link>
             <Button type="button" name="logout" className="ml-3 navBarButton" onClick={handleLogout}>LOGOUT</Button>
           </div>
         )

@@ -13,7 +13,7 @@ require('./Assets/styles/homePage.css');
 const Routes = () => (
   <BrowserRouter>
     <div className="d-flex fullHeight fullPage">
-      <div className="col-3 mr-3">
+      <div className="col-3 mr-3 mainDiv">
         <Nav />
       </div>
       <div className="mr-3 mainPage">
