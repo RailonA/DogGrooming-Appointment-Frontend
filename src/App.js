@@ -13,7 +13,6 @@ function App() {
 
   const closeError = () => {
     dispatch(setFeedbackInactiveAction());
-    // feedbackData(false);
   };
 
   useEffect(() => {
