@@ -16,9 +16,11 @@ exports[`NavBar should match the snapshot 1`] = `
   <div
     className="UserProfile"
   >
-    <div>
+    <div
+      className="loginSignUpBtns"
+    >
       <button
-        className="mr-2 btn btn-primary"
+        className="navBarButton btn btn-primary"
         disabled={false}
         onClick={[Function]}
         type="button"
@@ -26,7 +28,7 @@ exports[`NavBar should match the snapshot 1`] = `
         LOGIN
       </button>
       <button
-        className="btn btn-primary"
+        className="navBarButton btn btn-primary"
         disabled={false}
         onClick={[Function]}
         type="button"

@@ -33,14 +33,14 @@ exports[`LoginForm should match the snapshot 1`] = `
     className="modal-footer"
   >
     <button
-      className="btn btn-primary"
+      className="navBarButton btn btn-primary"
       disabled={false}
       type="submit"
     >
       Log In
     </button>
     <button
-      className="btn btn-secondary"
+      className="navBarButton btn btn-primary"
       disabled={false}
       onClick={[Function]}
       type="button"

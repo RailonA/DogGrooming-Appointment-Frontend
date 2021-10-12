@@ -46,7 +46,7 @@ const ServiceList = ({ services, category }) => {
         filteredServices.map((service) => (
           <Card
             onClick={(e) => openAppointmentForm(e, service)}
-            key={service.category}
+            key={service.id}
           >
             <table className="  m-3 col-10">
               <tbody className=" col-12">
