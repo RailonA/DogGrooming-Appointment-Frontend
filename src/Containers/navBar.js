@@ -5,9 +5,10 @@ import UserProfile from '../Components/userProfile';
 import '../Assets/styles/navBar.css';
 
 const NavBar = () => (
-  <div className="headerNavbar flex-column h-100 justify-content-between p-2  text-white">
-    <Link to="/" className="headerText">
-      <h2 className="m-2">Pet Groomer</h2>
+  <div className="headerNavbar flex-md-row flex-column  h-100 justify-content-between p-2  text-white">
+    <Link to="/" className="headerDiv">
+      <h2 className="m-2 text-center headerText">Pet</h2>
+      <h2 className="m-2 headerText">Groomer</h2>
     </Link>
     <UserProfile />
     <div className="d-flex justify-content-between p-3 socialLinks col-12">

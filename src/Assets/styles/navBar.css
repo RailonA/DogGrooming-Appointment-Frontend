@@ -5,14 +5,22 @@
   font-weight: bold;
 }
 
-.headerText {
-  margin-top: 20px;
-  font-family: 'Jua', sans-serif;
-  color: rgb(58, 58, 58);
+.headerDiv {
+  font-family: 'Damion', cursive;
+  color: rgb(123, 180, 75);
+  font-weight: bold;
+  font-size: 90px;
 }
 
-.headerText:hover {
+.headerText {
+  font-family: 'Damion', cursive;
   color: rgb(123, 180, 75);
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.headerDiv:hover {
+  color: rgb(52, 87, 24);
   text-decoration: none;
 }
 

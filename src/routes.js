@@ -12,11 +12,11 @@ require('./Assets/styles/homePage.css');
 
 const Routes = () => (
   <BrowserRouter>
-    <div className="d-flex fullHeight">
+    <div className="d-flex fullHeight flex-md-row flex-column ">
       <div className="col-3 mr-3">
         <Nav />
       </div>
-      <div className="mr-3">
+      <div className="mr-3 col-9">
         <Switch>
           <Route path="/" component={HomePage} exact />
           <Route path="/Page404" component={Page404} exact />
