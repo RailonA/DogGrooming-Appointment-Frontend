@@ -9,17 +9,13 @@ body {
   height: 100%;
 }
 
-.fullHeight {
-  height: 100vh;
+.headerNavbar {
+  position: fixed;
+  left: 0;
 }
 
-.App {
-  background: url("https://i.imgur.com/SjzxM7L.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100%;
-  overflow: hidden;
+.fullHeight {
+  height: 100vh;
 }
 
 .mainPageTitles {

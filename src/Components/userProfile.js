@@ -73,7 +73,7 @@ const UserProfile = () => {
           </div>
         )
         : (
-          <div>
+          <div className="d-flex flex-column">
             <Button variant="primary" onClick={openLogin} className="mt-2 mb-3">LOGIN</Button>
             <Button type="button" variant="primary" onClick={openSignUp}>SIGN UP</Button>
           </div>
