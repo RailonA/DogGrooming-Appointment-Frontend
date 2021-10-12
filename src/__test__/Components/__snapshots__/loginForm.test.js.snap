@@ -1,135 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoginForm should match the snapshot 1`] = `
-Array [
-  <form
-    onSubmit={[Function]}
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="modal-header"
   >
     <div
-      className="modal-header"
+      className="modal-title h4"
     >
-      <div
-        className="modal-title h4"
-      >
-        LOG IN
-      </div>
-      <button
-        aria-label="Close"
-        className="btn-close"
-        onClick={[Function]}
-        type="button"
-      />
+      LOG IN
     </div>
-    <div
-      className="modal-body"
+  </div>
+  <div
+    className="modal-body"
+  >
+    <input
+      name="username"
+      onChange={[Function]}
+      placeholder="Enter Username"
+      type="text"
+    />
+    <input
+      name="password"
+      onChange={[Function]}
+      placeholder="*****"
+      type="password"
+    />
+  </div>
+  <div
+    className="modal-footer"
+  >
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
     >
-      <input
-        name="username"
-        onChange={[Function]}
-        placeholder="Enter Username"
-        type="text"
-      />
-      <input
-        name="password"
-        onChange={[Function]}
-        placeholder="*****"
-        type="password"
-      />
-    </div>
-    <div
-      className="modal-footer"
+      Log In
+    </button>
+    <button
+      className="btn btn-secondary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
     >
-      <button
-        className="btn btn-primary"
-        disabled={false}
-        type="submit"
-      >
-        Log In
-      </button>
-      <button
-        className="btn btn-secondary"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        Close
-      </button>
-    </div>
-  </form>,
-  <form>
-    <div
-      className="modal-header"
-    >
-      <div
-        className="modal-title h4"
-      >
-        Sign Up
-      </div>
-    </div>
-    <div
-      className="modal-body"
-    >
-      <div
-        className="flex-column"
-      >
-        <input
-          className="d-flex col-10"
-          name="username"
-          onChange={
-            Array [
-              [Function],
-            ]
-          }
-          placeholder="Enter Username"
-          type="text"
-        />
-        <input
-          className="d-flex col-10"
-          name="password"
-          onChange={
-            Array [
-              [Function],
-            ]
-          }
-          placeholder="Enter Password"
-          type="password"
-        />
-        <input
-          className="d-flex col-10"
-          name="password_confirmation"
-          onChange={
-            Array [
-              [Function],
-            ]
-          }
-          placeholder="Confirm Password"
-          type="password"
-        />
-      </div>
-    </div>
-    <div
-      className="modal-footer"
-    >
-      <button
-        className="btn btn-primary"
-        disabled={false}
-        type="submit"
-      >
-        SIGN UP
-      </button>
-      <button
-        className="btn btn-secondary"
-        disabled={false}
-        onClick={
-          Array [
-            [Function],
-          ]
-        }
-        type="button"
-      >
-        Cancel
-      </button>
-    </div>
-  </form>,
-]
+      Close
+    </button>
+  </div>
+</form>
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
-import ServiceList from '../../Components/serviceList';
+import ServiceList from '../../Containers/serviceList';
 
 describe('serviceList', () => {
   const services = [
@@ -29,7 +29,7 @@ describe('serviceList', () => {
       servicePrice: '81.00',
     },
   ];
-  const category = { category: 'dog' };
+  const category = 'dog';
 
   it('should match the snapshot', () => {
     const wrapper = renderer.create(

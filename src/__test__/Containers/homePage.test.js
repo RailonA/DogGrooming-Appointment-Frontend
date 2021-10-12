@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { render, screen, cleanup } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import '@testing-library/jest-dom/extend-expect';
-import Home from '../../Containers/homePage';
+import Home from '../../Pages/homePage';
 
 const mockStore = configureStore([]);
 
