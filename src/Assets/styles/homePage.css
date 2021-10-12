@@ -1,3 +1,27 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+.fullHeight {
+  height: 100vh;
+}
+
+.App {
+  background: url("https://i.imgur.com/SjzxM7L.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
 .mainPageTitles {
   font-family: 'IM Fell DW Pica', serif;
 }

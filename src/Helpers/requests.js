@@ -68,6 +68,7 @@ export const requestSignup = async (dispatch, username, password, passwordConf) 
     handleError(dispatch, 'signup', error);
   }
 };
+
 const requestServiceInfo = async (dispatch) => {
   try {
     dispatch(getServiceRequest());

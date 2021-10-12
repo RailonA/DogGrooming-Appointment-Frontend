@@ -5,6 +5,7 @@ import requestServiceInfo from './Helpers/requests';
 import Routes from './routes';
 import Feedback from './Components/feedback';
 import { setFeedbackInactiveAction } from './Actions/feedback';
+import './Assets/styles/homePage.css';
 
 function App() {
   const dispatch = useDispatch();
