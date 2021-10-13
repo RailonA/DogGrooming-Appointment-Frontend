@@ -6,11 +6,11 @@
 
 [Live Demo](https://petgroomingservice.herokuapp.com/)
 
-![screenshot1](./src/Assets/images/mainPage.png)
+![screenshot1](./src/Assets/images/mainPage1.png)
 
-![screenshot2](./src/Assets/images/serviceList.png)
+![screenshot2](./src/Assets/images/serviceList1.png)
 
-![screenshot3](./src/Assets/images/userPage.png)
+![screenshot3](./src/Assets/images/userPage1.png)
 
 ### Built with
 - JavaScript ES6
