@@ -59,8 +59,6 @@ const AppointmentForm = ({
           id="appointment"
           type="datetime-local"
           name="appointmentDate"
-          min="09:00"
-          max="20:00"
           onChange={handleChange}
         />
       </Modal.Body>
