@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import DateTimePicker from 'react-datetime-picker';
 import { Button, Modal } from 'react-bootstrap';
 import { requestAppointment } from '../Helpers/requests';
 import '../Assets/styles/navBar.css';
@@ -42,6 +43,9 @@ const AppointmentForm = ({
     e.target.reset();
     onCancel();
   };
+  const disableWeekends = ({ date }) => (date.getDay() === 0 || date.getDay() === 6);
+
+  const [value, onChange] = useState(new Date());
 
   return (
     <form onSubmit={handleSubmit}>
@@ -55,11 +59,23 @@ const AppointmentForm = ({
             {options}
           </select>
         </div>
-        <input
+        {/* <input
           id="appointment"
           type="datetime-local"
           name="appointmentDate"
+          minDate="datetime-local"
           onChange={handleChange}
+        /> */}
+        <DateTimePicker
+          onChange={onChange}
+          format="MM-dd h a"
+          value={value}
+          minDate={new Date()}
+          tileDisabled={disableWeekends}
+          // timeFormat="HH:mm:ss"
+          // timeConstraints={{
+          //   hours: { min: 8, max: 18 },
+          // }}
         />
       </Modal.Body>
       <Modal.Footer>
