@@ -61,6 +61,8 @@
 
 @media (min-width: 760px) {
   .headerNavbar {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     left: 0;
     height: 100vh;
@@ -76,6 +78,7 @@
   } */
 
   .socialLinks {
+    display: flex;
     position: absolute;
     left: 0;
     bottom: 0;

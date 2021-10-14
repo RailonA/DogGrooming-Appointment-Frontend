@@ -75,8 +75,8 @@ const UserProfile = () => {
         )
         : (
           <div className="loginSignUpBtns">
-            <Button onClick={openLogin} className="navBarButton">LOGIN</Button>
-            <Button type="button" onClick={openSignUp} className="navBarButton">SIGN UP</Button>
+            <Button onClick={openLogin} className="navBarButton mt-2">LOGIN</Button>
+            <Button type="button" onClick={openSignUp} className="navBarButton mt-2">SIGN UP</Button>
           </div>
         )}
     </div>

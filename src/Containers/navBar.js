@@ -6,15 +6,15 @@ import '../Assets/styles/navBar.css';
 
 const NavBar = () => (
   <div className="headerNavbar  p-2  text-white">
-    <div className="flex-column">
-      <div className="navGroupOne d-flex">
+    <div className="flex-column col ">
+      <div className="navGroupOne d-flex justify-content-between">
         <Link to="/" className="headerDiv">
           <h2 className="m-2 text-center headerText">Pet</h2>
           <h2 className="m-2 headerText">Groomer</h2>
         </Link>
-        <UserProfile />
+        <UserProfile className="" />
       </div>
-      <div className="d-flex justify-content-between p-3 socialLinks col-12">
+      <div className="d-flex justify-content-between  p-3 socialLinks col-12">
         <div>
           <a target="_blank" rel="noreferrer" href="https://www.facebook.com/RailonA.ArtStudio">
             <p><FaFacebookF className="socialButton" /></p>
