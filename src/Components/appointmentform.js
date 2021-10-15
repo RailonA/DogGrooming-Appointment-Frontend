@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import DateTimePicker from 'react-datetime-picker';
+import moment from 'moment';
+import { DatePicker, Space } from 'antd';
 import { Button, Modal } from 'react-bootstrap';
 import { requestAppointment } from '../Helpers/requests';
 import '../Assets/styles/navBar.css';
+import 'antd/dist/antd.css';
 
 const AppointmentForm = ({
   onCancel,
@@ -43,9 +45,24 @@ const AppointmentForm = ({
     e.target.reset();
     onCancel();
   };
-  const disableWeekends = ({ date }) => (date.getDay() === 0 || date.getDay() === 6);
 
-  const [value, onChange] = useState(new Date());
+  function range(start, end) {
+    const result = [];
+    for (let i = start; i < end; i += 1) {
+      result.push(i);
+    }
+    return result;
+  }
+
+  const disabledDates = (current) => (
+    current < moment().startOf('day') || moment(current).day() === 0 || moment(current).day() === 6
+  );
+
+  // const disabledDates = (current) => {
+  //   // Can not select days after today and before start Date
+  //   const start = moment('2019-01-01', 'YYYY-MM-DD');
+  //   return current < start || current > moment();
+  // };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -66,17 +83,16 @@ const AppointmentForm = ({
           minDate="datetime-local"
           onChange={handleChange}
         /> */}
-        <DateTimePicker
-          onChange={onChange}
-          format="MM-dd h a"
-          value={value}
-          minDate={new Date()}
-          tileDisabled={disableWeekends}
-          // timeFormat="HH:mm:ss"
-          // timeConstraints={{
-          //   hours: { min: 8, max: 18 },
-          // }}
-        />
+        <Space direction="vertical" size={12}>
+          <DatePicker
+            format="YYYY-MM-DD HH"
+            disabledDate={disabledDates}
+            showTime={{
+              defaultValue: moment('00:00:00', 'HH:mm:ss'),
+              disabledHours: () => range(8, 16).splice(8, 16),
+            }}
+          />
+        </Space>
       </Modal.Body>
       <Modal.Footer>
         <Button type="submit" className="navBarButton">Confirm</Button>

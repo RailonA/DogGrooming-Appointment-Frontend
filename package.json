@@ -6,7 +6,6 @@
     "node": "16.6.1"
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.15.7",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -17,10 +16,12 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "antd": "^4.16.13",
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
+    "moment": "^2.29.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
@@ -69,6 +70,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
+    "@babel/eslint-parser": "^7.15.8",
     "@babel/plugin-syntax-jsx": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
     "enzyme": "^3.11.0",
