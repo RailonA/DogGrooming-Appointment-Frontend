@@ -46,23 +46,9 @@ const AppointmentForm = ({
     onCancel();
   };
 
-  function range(start, end) {
-    const result = [];
-    for (let i = start; i < end; i += 1) {
-      result.push(i);
-    }
-    return result;
-  }
-
   const disabledDates = (current) => (
     current < moment().startOf('day') || moment(current).day() === 0 || moment(current).day() === 6
   );
-
-  // const disabledDates = (current) => {
-  //   // Can not select days after today and before start Date
-  //   const start = moment('2019-01-01', 'YYYY-MM-DD');
-  //   return current < start || current > moment();
-  // };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -88,9 +74,10 @@ const AppointmentForm = ({
             format="YYYY-MM-DD HH"
             disabledDate={disabledDates}
             showTime={{
+              use12Hours: true,
               defaultValue: moment('00:00:00', 'HH:mm:ss'),
-              disabledHours: () => range(8, 16).splice(8, 16),
             }}
+            disabledHours={() => [0, 1, 2, 3, 4, 5, 6, 7, 19, 20, 21, 22, 23, 24]}
           />
         </Space>
       </Modal.Body>
