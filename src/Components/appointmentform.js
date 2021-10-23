@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
-import { DatePicker, Space } from 'antd';
+import { DatePicker } from 'antd';
 import { Button, Modal } from 'react-bootstrap';
 import { requestAppointment } from '../Helpers/requests';
 import '../Assets/styles/navBar.css';
@@ -20,7 +20,7 @@ const AppointmentForm = ({
   const dispatch = useDispatch();
 
   let serviceId;
-  let date;
+  // let date;
 
   const options = serviceGroup.map((services) => (
     <option value={services.id} key={services.id}>
@@ -28,16 +28,23 @@ const AppointmentForm = ({
     </option>
   ));
 
-  const handleChange = (e) => {
+  const handleServiceChange = (e) => {
     if (e.target.name === 'service-selection') {
       serviceId = e.target.value;
+      console.log(serviceId);
       setChooseService(serviceId);
     }
-    if (e.target.name === 'appointmentDate') {
-      date = e.target.value;
-      setApointment(date);
-    }
   };
+
+  const handleDatePickerChange = (date) => {
+    setApointment(date);
+    console.log(date);
+  };
+
+  // const handleTimeChange = (time) => {
+  //   setApointment(time);
+  //   console.log(time);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,28 +65,21 @@ const AppointmentForm = ({
       <Modal.Body>
         <div>
           <p value={userData.id}>{userData.username}</p>
-          <select name="service-selection" onChange={handleChange} value={serviceSelected}>
+          <select name="service-selection" onChange={handleServiceChange} value={serviceSelected}>
             {options}
           </select>
         </div>
-        {/* <input
-          id="appointment"
-          type="datetime-local"
+        <DatePicker
           name="appointmentDate"
-          minDate="datetime-local"
-          onChange={handleChange}
-        /> */}
-        <Space direction="vertical" size={12}>
-          <DatePicker
-            format="YYYY-MM-DD HH"
-            disabledDate={disabledDates}
-            showTime={{
-              use12Hours: true,
-              defaultValue: moment('00:00:00', 'HH:mm:ss'),
-            }}
-            disabledHours={() => [0, 1, 2, 3, 4, 5, 6, 7, 19, 20, 21, 22, 23, 24]}
-          />
-        </Space>
+          format="YYYY-MM-DD HH"
+          disabledDate={disabledDates}
+          showTime={{
+            use12Hours: true,
+            defaultValue: moment('00:00:00', 'HH:mm:ss'),
+          }}
+          disabledHours={() => [0, 1, 2, 3, 4, 5, 6, 7, 19, 20, 21, 22, 23, 24]}
+          onChange={(date) => handleDatePickerChange(date)}
+        />
       </Modal.Body>
       <Modal.Footer>
         <Button type="submit" className="navBarButton">Confirm</Button>
