@@ -20,7 +20,7 @@ const AppointmentForm = ({
   const dispatch = useDispatch();
 
   let serviceId;
-  // let date;
+  let date;
 
   const options = serviceGroup.map((services) => (
     <option value={services.id} key={services.id}>
@@ -36,15 +36,11 @@ const AppointmentForm = ({
     }
   };
 
-  const handleDatePickerChange = (date) => {
+  const handleDatePickerChange = (e) => {
+    date = e;
     setApointment(date);
     console.log(date);
   };
-
-  // const handleTimeChange = (time) => {
-  //   setApointment(time);
-  //   console.log(time);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -70,7 +66,6 @@ const AppointmentForm = ({
           </select>
         </div>
         <DatePicker
-          name="appointmentDate"
           format="YYYY-MM-DD HH"
           disabledDate={disabledDates}
           showTime={{
@@ -78,7 +73,7 @@ const AppointmentForm = ({
             defaultValue: moment('00:00:00', 'HH:mm:ss'),
           }}
           disabledHours={() => [0, 1, 2, 3, 4, 5, 6, 7, 19, 20, 21, 22, 23, 24]}
-          onChange={(date) => handleDatePickerChange(date)}
+          onChange={(e) => handleDatePickerChange(e)}
         />
       </Modal.Body>
       <Modal.Footer>
@@ -92,7 +87,7 @@ const AppointmentForm = ({
 AppointmentForm.propTypes = {
   onCancel: PropTypes.func.isRequired,
   serviceGroup: PropTypes.string.isRequired,
-  serviceSelected: PropTypes.string.isRequired,
+  serviceSelected: PropTypes.number.isRequired,
   setChooseService: PropTypes.string.isRequired,
 };
 
