@@ -1,5 +1,5 @@
 const convertTime = (time) => {
-  const hour = time.getHours() % 12;
+  const hour = ((time.getHours() % 12) + 1);
 
   const ampm = hour >= 12 ? ' pm' : ' am';
 

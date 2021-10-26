@@ -5,6 +5,7 @@ import moment from 'moment';
 import { DatePicker, TimePicker } from 'antd';
 import { Button, Modal } from 'react-bootstrap';
 import { requestAppointment } from '../Helpers/requests';
+// import convertTime from '../Helpers/convertTime';
 import '../Assets/styles/navBar.css';
 import 'antd/dist/antd.css';
 
@@ -14,13 +15,15 @@ const AppointmentForm = ({
   serviceSelected,
   setChooseService,
 }) => {
-  const [appointment, setApointment] = useState('');
+  const [appointmentDate, setApointmentDate] = useState('');
+  const [appointmentTime, setApointmentTime] = useState('');
 
   const userData = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
 
   let serviceId;
   let date;
+  let time;
 
   const options = serviceGroup.map((services) => (
     <option value={services.id} key={services.id}>
@@ -37,12 +40,21 @@ const AppointmentForm = ({
 
   const handleDatePickerChange = (e) => {
     date = e;
-    setApointment(date);
+    console.log(date);
+    setApointmentDate(date);
+  };
+
+  const handleTimePickerChange = (e) => {
+    time = (e);
+    console.log(time);
+    setApointmentTime(time);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    requestAppointment(dispatch, userData.id, serviceSelected, appointment, userData.token);
+    requestAppointment(
+      dispatch, userData.id, serviceSelected, appointmentDate, appointmentTime, userData.token,
+    );
     e.target.reset();
     onCancel();
   };
@@ -50,10 +62,6 @@ const AppointmentForm = ({
   const disabledDates = (current) => (
     current < moment().startOf('day') || moment(current).day() === 0 || moment(current).day() === 6
   );
-
-  function onTimeChange(time, timeString) {
-    console.log(time, timeString);
-  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -73,13 +81,14 @@ const AppointmentForm = ({
           onChange={(e) => handleDatePickerChange(e)}
         />
         <TimePicker
-          onChange={(e) => onTimeChange(e)}
-          format="HH"
+          format="Ha"
+          use12Hours="true"
           showTime={{
             use12Hours: true,
             defaultValue: moment('00:00:00', 'HH:mm:ss'),
           }}
           disabledHours={() => [0, 1, 2, 3, 4, 5, 6, 7, 19, 20, 21, 22, 23, 24]}
+          onChange={(e) => handleTimePickerChange(e)}
         />
       </Modal.Body>
       <Modal.Footer>
