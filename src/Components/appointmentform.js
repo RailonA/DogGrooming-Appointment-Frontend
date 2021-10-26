@@ -81,7 +81,7 @@ const AppointmentForm = ({
           onChange={(e) => handleDatePickerChange(e)}
         />
         <TimePicker
-          format="Ha"
+          format="H a"
           use12Hours="true"
           showTime={{
             use12Hours: true,
