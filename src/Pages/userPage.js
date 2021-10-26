@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { requestUserInfo } from '../Helpers/requests';
 import convertDate from '../Helpers/convertDate';
+import convertTime from '../Helpers/convertTime';
+
 import '../Assets/styles/userPage.css';
 
 const UserPage = () => {
@@ -44,10 +46,7 @@ const UserPage = () => {
             <div className="d-flex col-12">
               <p className="mr-3 col-3 font-weight-bold">Appointments Date:</p>
               <p>{convertDate(new Date(appointments.date))}</p>
-            </div>
-            <div className="d-flex col-12">
-              <p className="mr-3 col-3 font-weight-bold">Appointments Was Created At :</p>
-              <p>{convertDate(new Date(appointments.created_at))}</p>
+              <p className="ml-3">{convertTime(new Date(appointments.date))}</p>
             </div>
             <hr className=" col-12 tm-4 tb-4 mainHr" />
           </div>
