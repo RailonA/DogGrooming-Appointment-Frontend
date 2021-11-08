@@ -45,8 +45,8 @@ const UserPage = () => {
             </div>
             <div className="d-flex col-12">
               <p className="mr-3 col-3 font-weight-bold">Appointments Date:</p>
-              <p className="ml-3">{convertDate(new Date(appointments.date))}</p>
-              <p className="ml-3">{convertTime(new Date(appointments.time))}</p>
+              <p className="ml-3">{convertDate(appointments.date)}</p>
+              <p className="ml-3">{convertTime(appointments.time)}</p>
             </div>
             <hr className=" col-12 tm-4 tb-4 mainHr" />
           </div>
