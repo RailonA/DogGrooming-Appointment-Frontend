@@ -42,7 +42,6 @@ const AppointmentForm = ({
     date = e;
     console.log(date);
     setApointmentDate(date);
-    // MAKE A REQUEST THAT RETURNS APPOINTMENT S FOR THE SPECIFIC DATE
   };
 
   const handleTimePickerChange = (e) => {
