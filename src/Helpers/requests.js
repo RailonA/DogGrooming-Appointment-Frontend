@@ -10,6 +10,11 @@ import {
   getServiceSuccess,
   getServiceFailure,
 } from '../Actions/services';
+import {
+  getAppointmentRequest,
+  getAppointmentSuccess,
+  getAppointmentFailure,
+} from '../Actions/appointments';
 
 import { sendFeedbackAction } from '../Actions/feedback';
 import handleError from './handleError';
@@ -96,10 +101,21 @@ export const requestAppointment = async (
           Authorization: token,
         },
       });
-    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully reserved trip.' }));
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully reserved appointment.' }));
   } catch (error) {
     handleError(dispatch, 'appointment', error);
   }
 };
 
-export default requestServiceInfo;
+const requestAppointmentInfo = async (dispatch) => {
+  try {
+    dispatch(getAppointmentRequest());
+    const response = await axios.get('http://localhost:3000/api/v1/appointments');
+    dispatch(getAppointmentSuccess(response.data));
+    // console.log(response.data);
+  } catch (error) {
+    dispatch(getAppointmentFailure);
+    handleError(dispatch, 'appointment', error);
+  }
+};
+export default (requestServiceInfo, requestAppointmentInfo);
