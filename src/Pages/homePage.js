@@ -2,7 +2,7 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import requestServiceInfo from '../Helpers/requests';
+import requestServiceInfo, { requestAppointmentInfo } from '../Helpers/requests';
 import dogImg from '../Assets/images/dogGrooming.jpg';
 import catImg from '../Assets/images/catGrooming.jpeg';
 import '../Assets/styles/homePage.css';
@@ -12,6 +12,7 @@ const HomePage = () => {
 
   useEffect(() => {
     requestServiceInfo(dispatch);
+    requestAppointmentInfo(dispatch);
   }, [dispatch]);
 
   return (

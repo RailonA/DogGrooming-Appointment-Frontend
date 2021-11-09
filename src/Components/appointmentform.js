@@ -40,13 +40,11 @@ const AppointmentForm = ({
 
   const handleDatePickerChange = (e) => {
     date = e;
-    console.log(date);
     setApointmentDate(date);
   };
 
   const handleTimePickerChange = (e) => {
     time = (e);
-    console.log(time);
     setApointmentTime(time);
   };
 
