@@ -19,8 +19,8 @@ const ServiceList = ({ services, category, appointmentInfo }) => {
   };
 
   const filteredServices = services.filter((service) => service.category === category);
-  const filteredAppointmentIfo = appointmentInfo.filter((appointment) => appointment);
-  console.log(filteredAppointmentIfo);
+  const filteredAppointmentInfo = appointmentInfo.filter((appointment) => appointment);
+  console.log(filteredAppointmentInfo);
   return (
     <div className="container-fluid flex-column justify-content-center">
       {appointmnetProcess
@@ -37,6 +37,7 @@ const ServiceList = ({ services, category, appointmentInfo }) => {
                 onCancel={closeAppointmentForm}
                 serviceGroup={filteredServices}
                 serviceSelected={chooseService}
+                filteredAppointmentInfo={filteredAppointmentInfo}
                 setChooseService={setChooseService}
               />
             </Modal.Body>
