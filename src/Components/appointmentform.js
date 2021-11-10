@@ -19,6 +19,7 @@ const AppointmentForm = ({
   const [appointmentTime, setApointmentTime] = useState('');
 
   const userData = useSelector((state) => state.currentUser);
+
   const dispatch = useDispatch();
 
   let serviceId;

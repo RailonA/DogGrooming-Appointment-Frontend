@@ -5,7 +5,7 @@ import AppointmentForm from '../Components/appointmentform';
 
 import '../Assets/styles/serviceList.css';
 
-const ServiceList = ({ services, category }) => {
+const ServiceList = ({ services, category, appointmentInfo }) => {
   const [appointmnetProcess, setApointmnetProcess] = useState(false);
   const [chooseService, setChooseService] = useState('');
 
@@ -19,7 +19,8 @@ const ServiceList = ({ services, category }) => {
   };
 
   const filteredServices = services.filter((service) => service.category === category);
-
+  const filteredAppointmentIfo = appointmentInfo.filter((appointment) => appointment);
+  console.log(filteredAppointmentIfo);
   return (
     <div className="container-fluid flex-column justify-content-center">
       {appointmnetProcess
@@ -78,7 +79,7 @@ const ServiceList = ({ services, category }) => {
 ServiceList.propTypes = {
   services: PropTypes.arrayOf(PropTypes.object).isRequired,
   category: PropTypes.string.isRequired,
-
+  appointmentInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ServiceList;
