@@ -6,7 +6,9 @@ import requestServiceInfo, { requestAppointmentInfo } from '../Helpers/requests'
 
 const ServicesPage = () => {
   const serviceData = useSelector((state) => state.services.servicesCollection);
-  const appointmentInfoData = useSelector((state) => state.appointments.appointmentsCollection);
+  const appointmentInfoData = useSelector(
+    (state) => state.appointments.appointmentsCollection,
+  );
 
   const { category } = useParams();
   const dispatch = useDispatch();

@@ -5,7 +5,6 @@ import moment from 'moment';
 import { DatePicker, TimePicker } from 'antd';
 import { Button, Modal } from 'react-bootstrap';
 import { requestAppointment } from '../Helpers/requests';
-// import convertTime from '../Helpers/convertTime';
 import '../Assets/styles/navBar.css';
 import 'antd/dist/antd.css';
 
@@ -14,17 +13,19 @@ const AppointmentForm = ({
   serviceGroup,
   serviceSelected,
   setChooseService,
+  allAppointmentInfo,
 }) => {
-  const [appointmentDate, setApointmentDate] = useState('');
-  const [appointmentTime, setApointmentTime] = useState('');
+  const [appointmentDate, setAppointmentDate] = useState('');
+  const [appointmentTime, setAppointmentTime] = useState('');
 
   const userData = useSelector((state) => state.currentUser);
-
   const dispatch = useDispatch();
 
   let serviceId;
   let date;
   let time;
+
+  // const listedAppointmentDates = [];
 
   const options = serviceGroup.map((services) => (
     <option value={services.id} key={services.id}>
@@ -39,14 +40,34 @@ const AppointmentForm = ({
     }
   };
 
+  // const allAppointmentDates = allAppointmentInfo.map(
+  //   (appointment) => appointment.date,
+  // );
+
+  // console.log(allAppointmentDates);
+
+  // console.log(allAppointmentInfo[1].date);
+
   const handleDatePickerChange = (e) => {
     date = e;
-    setApointmentDate(date);
+    setAppointmentDate(date);
+    const myDatetimeFormat = 'YYYY-MM-DD';
+    const myDatetimeString = moment(date).format(myDatetimeFormat);
+    console.log(myDatetimeString);
+
+    allAppointmentInfo.forEach((appointmentData) => {
+      // console.log(date);
+      if (appointmentData.date === myDatetimeString) {
+        console.log('Yes, the value exists!');
+      } else {
+        console.log('No, the value is absent.');
+      }
+    });
   };
 
   const handleTimePickerChange = (e) => {
     time = (e);
-    setApointmentTime(time);
+    setAppointmentTime(time);
   };
 
   const handleSubmit = (e) => {
@@ -103,6 +124,9 @@ AppointmentForm.propTypes = {
   serviceGroup: PropTypes.string.isRequired,
   serviceSelected: PropTypes.number.isRequired,
   setChooseService: PropTypes.string.isRequired,
+  // allAppointmentInfo: PropTypes.string.isRequired,
+  allAppointmentInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+
 };
 
 export default AppointmentForm;

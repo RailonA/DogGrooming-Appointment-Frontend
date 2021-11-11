@@ -3,4 +3,4 @@ const convertDate = (date) => {
   return `${vars[1]}/${vars[2]}/${vars[0]}`;
 };
 
-export default convertDate;
+export default (convertDate);

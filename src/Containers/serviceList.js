@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Modal } from 'react-bootstrap';
-import AppointmentForm from '../Components/appointmentform';
+import AppointmentForm from '../Components/appointmentForm';
 
 import '../Assets/styles/serviceList.css';
 
@@ -19,8 +19,7 @@ const ServiceList = ({ services, category, appointmentInfo }) => {
   };
 
   const filteredServices = services.filter((service) => service.category === category);
-  const filteredAppointmentInfo = appointmentInfo.filter((appointment) => appointment);
-  console.log(filteredAppointmentInfo);
+
   return (
     <div className="container-fluid flex-column justify-content-center">
       {appointmnetProcess
@@ -37,7 +36,7 @@ const ServiceList = ({ services, category, appointmentInfo }) => {
                 onCancel={closeAppointmentForm}
                 serviceGroup={filteredServices}
                 serviceSelected={chooseService}
-                filteredAppointmentInfo={filteredAppointmentInfo}
+                allAppointmentInfo={appointmentInfo}
                 setChooseService={setChooseService}
               />
             </Modal.Body>
