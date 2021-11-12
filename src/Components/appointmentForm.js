@@ -52,12 +52,10 @@ const AppointmentForm = ({
 
     allAppointmentInfo.forEach((appointmentData) => {
       if (appointmentData.date === myDateString) {
-        console.log('Yes, the DATE exists in APPOINTMENT DB!');
         const hr = parseInt(moment(appointmentData.time).format(myTimeFormat), 10);
         newDis.push(hr, hr + 1);
       }
     });
-    console.log('TIMES ==>', newDis);
     setDisableTimes(newDis);
   };
 
@@ -120,7 +118,6 @@ AppointmentForm.propTypes = {
   serviceGroup: PropTypes.string.isRequired,
   serviceSelected: PropTypes.number.isRequired,
   setChooseService: PropTypes.string.isRequired,
-  // allAppointmentInfo: PropTypes.string.isRequired,
   allAppointmentInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
 
 };
