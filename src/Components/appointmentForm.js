@@ -17,6 +17,7 @@ const AppointmentForm = ({
 }) => {
   const [appointmentDate, setAppointmentDate] = useState('');
   const [appointmentTime, setAppointmentTime] = useState('');
+  const [disableTimes, setDisableTimes] = useState([]);
 
   const userData = useSelector((state) => state.currentUser);
   const dispatch = useDispatch();
@@ -24,8 +25,6 @@ const AppointmentForm = ({
   let serviceId;
   let date;
   let time;
-
-  // const listedAppointmentDates = [];
 
   const options = serviceGroup.map((services) => (
     <option value={services.id} key={services.id}>
@@ -40,29 +39,26 @@ const AppointmentForm = ({
     }
   };
 
-  // const allAppointmentDates = allAppointmentInfo.map(
-  //   (appointment) => appointment.date,
-  // );
-
-  // console.log(allAppointmentDates);
-
-  // console.log(allAppointmentInfo[1].date);
+  const mainDisableTimes = [0, 1, 2, 3, 4, 5, 6, 7, 19, 20, 21, 22, 23, 24];
+  const newDisableTimes = mainDisableTimes.concat(disableTimes);
 
   const handleDatePickerChange = (e) => {
     date = e;
     setAppointmentDate(date);
-    const myDatetimeFormat = 'YYYY-MM-DD';
-    const myDatetimeString = moment(date).format(myDatetimeFormat);
-    console.log(myDatetimeString);
+    const myDateFormat = 'YYYY-MM-DD';
+    const myTimeFormat = 'HH';
+    const myDateString = moment(date).format(myDateFormat);
+    const newDis = [];
 
     allAppointmentInfo.forEach((appointmentData) => {
-      // console.log(date);
-      if (appointmentData.date === myDatetimeString) {
-        console.log('Yes, the value exists!');
-      } else {
-        console.log('No, the value is absent.');
+      if (appointmentData.date === myDateString) {
+        console.log('Yes, the DATE exists in APPOINTMENT DB!');
+        const hr = parseInt(moment(appointmentData.time).format(myTimeFormat), 10);
+        newDis.push(hr, hr + 1);
       }
     });
+    console.log('TIMES ==>', newDis);
+    setDisableTimes(newDis);
   };
 
   const handleTimePickerChange = (e) => {
@@ -107,7 +103,7 @@ const AppointmentForm = ({
             use12Hours: true,
             defaultValue: moment('00:00:00', 'HH:mm:ss'),
           }}
-          disabledHours={() => [0, 1, 2, 3, 4, 5, 6, 7, 19, 20, 21, 22, 23, 24]}
+          disabledHours={() => newDisableTimes}
           onChange={(e) => handleTimePickerChange(e)}
         />
       </Modal.Body>

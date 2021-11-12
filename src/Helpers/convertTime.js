@@ -5,4 +5,4 @@ const convertTime = (time) => {
   return `${timeArr[0] > 12 ? timeArr[0] - 12 : timeArr[0]}:${timeArr[1]} ${ampm}`;
 };
 
-export default convertTime;
+export default (convertTime);
