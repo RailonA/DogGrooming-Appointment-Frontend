@@ -20,10 +20,10 @@ import { sendFeedbackAction } from '../Actions/feedback';
 import handleError from './handleError';
 
 const requests = {
-  users: 'https://petgroomingservicedatabase.herokuapp.com/api/v1/users',
-  login: 'https://petgroomingservicedatabase.herokuapp.com/api/v1/login',
-  services: 'https://petgroomingservicedatabase.herokuapp.com/api/v1/services',
-  appointments: 'https://petgroomingservicedatabase.herokuapp.com/api/v1/appointments',
+  users: 'http://localhost:3000/api/v1/users',
+  login: 'http://localhost:3000/api/v1/login',
+  services: 'http://localhost:3000/api/v1/services',
+  appointments: 'http://localhost:3000/api/v1/appointments',
 };
 
 export const requestUserInfo = async (dispatch, id, token) => {
@@ -77,7 +77,7 @@ export const requestSignup = async (dispatch, username, password, passwordConf) 
 const requestServiceInfo = async (dispatch) => {
   try {
     dispatch(getServiceRequest());
-    const response = await axios.get('https://petgroomingservicedatabase.herokuapp.com/api/v1/services');
+    const response = await axios.get('http://localhost:3000/api/v1/services');
     dispatch(getServiceSuccess(response.data));
   } catch (error) {
     dispatch(getServiceFailure);
